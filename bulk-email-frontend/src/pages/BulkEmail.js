@@ -21,7 +21,8 @@ function BulkEmail() {
       const data = await sendBulkEmail(token, file, subject, message);
       alert(`${data.sentCount} emails sent successfully!`);
     } catch (err) {
-      alert(err.response?.data?.message);
+      // alert(err.response?.data?.message);
+      console.log("email not sent", err);
     }
     setLoading(false);
   };

@@ -4,6 +4,8 @@ const csv = require("csv-parser");
 const EmailLog = require("../models/EmailLog");
 
 exports.sendBulkEmail = async (req, res) => {
+  console.log("backend call");
+
   try {
     const { subject, message } = req.body;
     const filePath = req.file.path;
