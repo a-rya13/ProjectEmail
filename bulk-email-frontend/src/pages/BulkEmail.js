@@ -18,6 +18,8 @@ function BulkEmail() {
 
     setLoading(true);
     try {
+      console.log("frontedn running");
+
       const data = await sendBulkEmail(token, file, subject, message);
       alert(`${data.sentCount} emails sent successfully!`);
     } catch (err) {

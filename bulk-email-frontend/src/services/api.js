@@ -27,6 +27,7 @@ export const sendBulkEmail = async (token, file, subject, message) => {
   formData.append("file", file);
   formData.append("subject", subject);
   formData.append("message", message);
+  console.log("bulk email");
 
   const res = await axios.post(`${API_BASE}/email/send`, formData, {
     headers: {
