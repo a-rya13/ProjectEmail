@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = "https://projectemail.onrender.com/api";
+const API_BASE = "https://projectemail.onrender.com";
 
 export const signupUser = async (name, email, password) => {
   const res = await axios.post(`${API_BASE}/auth/signup`, {

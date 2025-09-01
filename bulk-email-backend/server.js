@@ -20,10 +20,10 @@ app.use(
 app.use(express.json()); // parse JSON bodies
 
 // routes
-app.use("/api/auth", require("./routes/auth"));
+app.use("/auth", require("./routes/auth"));
 
-app.use("/api/user", require("./routes/user"));
-app.use("/api/email", require("./routes/email"));
+app.use("/user", require("./routes/user"));
+app.use("/email", require("./routes/email"));
 
 // root
 app.get("/", (req, res) => res.send("Bulk Email Backend Running"));
