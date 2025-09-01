@@ -11,7 +11,12 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 // middlewares
-app.use(cors({ origin: "http://localhost:3000" })); // allow your react app
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://email-sending-bulk.netlify.app"],
+  })
+);
+// allow your react app
 app.use(express.json()); // parse JSON bodies
 
 // routes
