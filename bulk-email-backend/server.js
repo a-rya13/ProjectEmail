@@ -9,13 +9,35 @@ const PORT = process.env.PORT || 5000;
 
 // connect to DB
 connectDB();
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://email-sending-bulk.netlify.app",
+  "https://projectemail.onrender.com/", // (optional) if you serve frontend from Render
+];
 
-// middlewares
+// Middleware
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://email-sending-bulk.netlify.app"],
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
   })
 );
+// middlewares
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:3000",
+//       "https://email-sending-bulk.netlify.app",
+//       "https://projectemail.onrender.com/",
+//     ],
+//   })
+// );
 // allow your react app
 app.use(express.json()); // parse JSON bodies
 
